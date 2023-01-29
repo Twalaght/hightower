@@ -13,5 +13,6 @@ echo "Public IP: $public_ip"
 # Send a curl request to update the IP if required
 if [ "$public_ip" != "$dns_ip" ]; then
 	curl -s -o /dev/null "https://dynamicdns.park-your-domain.com/update?host=@&domain=$DOMAIN&password=$NC_PWD&ip=$public_ip"
-	echo "Curl request sent with $public_ip"
+	curl -s -o /dev/null "https://dynamicdns.park-your-domain.com/update?host=*&domain=$DOMAIN&password=$NC_PWD&ip=$public_ip"
+	echo "Curl requests sent with $public_ip"
 fi
